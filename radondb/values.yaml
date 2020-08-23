@@ -1,0 +1,56 @@
+mysql:
+  replicas: 2
+  mysqlRootPassword: qingcloud1234
+  mysqlUser: qingcloud
+  mysqlPassword: qingcloud
+  mysqlDatabase: qingcloud
+  nodeSelector: {}
+  affinity: {}
+  imagePullPolicy: IfNotPresent
+  timezone: "Asia/Shanghai"
+  persistence:
+    enabled: false
+    size: 1Gi
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 100m
+    limits:
+      memory: 256Mi
+      cpu: 100m
+  configurationFiles: {}
+#    mysql.cnf: |-
+#      [mysqld]
+#      max_connections=104
+  initializationFiles: {}
+#    first-db.sql: |-
+#      CREATE DATABASE IF NOT EXISTS first DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+#    second-db.sql: |-
+#      CREATE DATABASE IF NOT EXISTS second DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+radon:
+  database: qingcloud #mysqlDatabase
+  backend_replicas: 2 #mysql.replicas
+  backend_password: qingcloud1234 #mysqlRootPassword
+  replicas: 1 # 0 or 1, 0 is stop.
+  backend_maxconnections: 100
+  image: "zlianzhuang/radon"
+  nodeSelector: {}
+  affinity: {}
+  imagePullPolicy: IfNotPresent
+  timezone: "Asia/Shanghai"
+  persistence:
+    enabled: false
+    size: 1Gi
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 100m
+    limits:
+      memory: 256Mi
+      cpu: 100m
+  imageCredentials:
+    enable: false
+    registry: http://192.168.0.3:8090
+    username: qingcloud
+    password: qingcloud

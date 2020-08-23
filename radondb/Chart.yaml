@@ -1,0 +1,24 @@
+apiVersion: v2
+name: radondb
+description: radondb = radon + mysql. radondb is Fast, reliable, scalable, and easy to use open-source relational database system.
+type: application
+version: 1.0.0
+home: https://radondb.io/
+icon: https://avatars1.githubusercontent.com/u/31385114?s=200&v=4
+keywords:
+- radon
+- database
+- sql
+maintainers:
+- email: lianzhuangzhang@yunify.com
+  name: zhang lian zhuang
+dependencies:
+  - name: mysql
+    version: 1.0.0
+    repository: http://localhost:8091
+  - name: radon
+    version: 1.0.0
+    repository: http://localhost:8091
+sources:
+- https://github.com/radondb/radon
+#appVersion: 1.0.0
