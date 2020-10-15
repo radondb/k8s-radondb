@@ -21,7 +21,9 @@ To install the chart with the release name `my-release`:
 
 ```bash
 $ cd radondb
-$ helm install --name my-release .
+$ helm install --name-template my-release .
+or
+$ helm install my-release .
 ```
 
 > set radondb parameters in value.yaml
